@@ -1,0 +1,93 @@
+{
+  "name": "auto-file-sorter",
+  "displayName": "Auto File Sorter",
+  "description": "%ext.description%",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GinovaCode/Auto-File-Sorter"
+  },
+  "icon": "media/filesorter_icon.png",
+  "publisher": "Ginova",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "l10n": "./l10n",
+  "contributes": {
+    "commands": [
+      {
+        "command": "autoFileSorter.sortFolder",
+        "title": "%command.sortFolder.title%",
+        "icon": "$(list-ordered)"
+      },
+      {
+        "command": "autoFileSorter.sortWorkspace",
+        "title": "%command.sortWorkspace.title%"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "autoFileSorter.sortFolder",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "autoFileSorter.sortFolder"
+        },
+        {
+          "command": "autoFileSorter.sortWorkspace"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Auto File Sorter",
+      "properties": {
+        "autoFileSorter.watchForChanges": {
+          "type": "boolean",
+          "default": true,
+          "description": "%config.watchForChanges.description%"
+        },
+        "autoFileSorter.defaultFormat": {
+          "type": "string",
+          "enum": [
+            "space",
+            "dot",
+            "underscore"
+          ],
+          "default": "space",
+          "description": "%config.defaultFormat.description%"
+        },
+        "autoFileSorter.defaultSortBy": {
+          "type": "string",
+          "enum": [
+            "name",
+            "created"
+          ],
+          "default": "name",
+          "description": "%config.defaultSortBy.description%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@vscode/l10n": "^0.0.18"
+  }
+}

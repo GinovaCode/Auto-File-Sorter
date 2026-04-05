@@ -1,0 +1,8 @@
+{
+    "ext.description": "自动对文件夹内文件排序并编号命名",
+    "command.sortFolder.title": "对此文件夹排序编号",
+    "command.sortWorkspace.title": "对整个工作区排序编号",
+    "config.watchForChanges.description": "监听文件变化并自动重新排序",
+    "config.defaultFormat.description": "默认编号格式：space=「00 」, dot=「00.」, underscore=「00_」",
+    "config.defaultSortBy.description": "默认排序方式：name=按名称, created=按创建时间"
+}

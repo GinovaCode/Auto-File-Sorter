@@ -1,0 +1,8 @@
+{
+    "ext.description": "Automatically sort and number files in a folder",
+    "command.sortFolder.title": "Sort and number this folder",
+    "command.sortWorkspace.title": "Sort and number entire workspace",
+    "config.watchForChanges.description": "Monitor file changes and auto-renumber sequentially",
+    "config.defaultFormat.description": "Default numbering formats: space=「00 」, dot=「00.」, underscore=「00_」",
+    "config.defaultSortBy.description": "Default sorting modes: name = by filename, created = by creation time"
+}
