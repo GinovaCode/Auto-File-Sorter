@@ -217,9 +217,7 @@ function buildRenameOperations(folderPath, options) {
                         continue;
                     const entry = group[round];
                     const prefix = pad(round, roundDigits) + sep;
-                    const targetBase = options.removeExisting && hasExistingPrefix(entry.name)
-                        ? entry.baseName
-                        : entry.name;
+                    const targetBase = entry.baseName;
                     const newName = prefix + targetBase;
                     if (newName !== entry.name) {
                         ops.push({

@@ -571,7 +571,17 @@ export function getSortDialogHtml(
           document.getElementById('group-display-options').style.display = 'grid';
       });
 
+      document.getElementById('display-byType').addEventListener('click', function() {
+        state.groupDisplay = 'byType';
+        this.classList.add('selected');
+        document.getElementById('display-byIndex').classList.remove('selected');
+      });
 
+      document.getElementById('display-byIndex').addEventListener('click', function() {
+        state.groupDisplay = 'byIndex';
+        this.classList.add('selected');
+        document.getElementById('display-byType').classList.remove('selected');
+      });
 
       // 排除文件展开
       let excludeOpen = false;

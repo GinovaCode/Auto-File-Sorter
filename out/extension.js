@@ -61,7 +61,7 @@ function activate(context) {
     const sortWorkspaceCmd = vscode.commands.registerCommand("autoFileSorter.sortWorkspace", async () => {
         const ws = vscode.workspace.workspaceFolders;
         if (!ws || ws.length === 0) {
-            vscode.window.showInformationMessage(l10n.t("Please open a workspace folder first."));
+            vscode.window.setStatusBarMessage(l10n.t("Please open a workspace folder first."), 3000);
             return;
         }
         for (const folder of ws) {
@@ -183,7 +183,7 @@ async function runSortDialog(folderUri, context) {
                 (0, sorter_1.executeRenames)(undoOps);
                 // 删除排序时把资源管理器排列方式重置回默认
                 vscode.workspace.getConfiguration().update("explorer.sortOrder", "default", vscode.ConfigurationTarget.Global);
-                vscode.window.showInformationMessage(l10n.t("✅ Undone numbering for {0} files.", undoOps.length));
+                vscode.window.setStatusBarMessage(l10n.t("✅ Undone numbering for {0} files.", undoOps.length), 3000);
                 resolve(null);
                 panel.dispose();
             }
@@ -221,11 +221,11 @@ async function runSortDialog(folderUri, context) {
         }
         // ← 新增
         if (ops === "EMPTY") {
-            vscode.window.showInformationMessage(l10n.t("This folder is empty. No files to sort."));
+            vscode.window.setStatusBarMessage(l10n.t("This folder is empty. No files to sort."), 3000);
             return;
         }
         if (ops.length === 0) {
-            vscode.window.showInformationMessage(l10n.t("All files are already in order. No changes needed."));
+            vscode.window.setStatusBarMessage(l10n.t("All files are already in order. No changes needed."), 3000);
             return;
         }
         progress.report({ message: l10n.t("Renaming {0} files…", ops.length) });
@@ -236,7 +236,7 @@ async function runSortDialog(folderUri, context) {
                 const sortOrder = options.groupDisplay === "byType" ? "type" : "default";
                 vscode.workspace.getConfiguration().update("explorer.sortOrder", sortOrder, vscode.ConfigurationTarget.Global);
             }
-            vscode.window.showInformationMessage(l10n.t("✅ Done! Renamed {0} files.", ops.length));
+            vscode.window.setStatusBarMessage(l10n.t("✅ Done! Renamed {0} files.", ops.length), 3000);
         }
         catch (err) {
             vscode.window.showErrorMessage(l10n.t("Rename failed: {0}", String(err)));

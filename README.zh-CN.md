@@ -96,5 +96,13 @@ auto-file-sorter/
 └── tsconfig.json
 ```
 
+---
+## 作者: Gina Wang    [GitHub](https://github.com/GinovaCode)
 
-作者: Gina Wang  [GitHub](https://github.com/GinovaCode)
+---
+
+![demo](media/image_cn.png)
+
+### [点击链接看看使用效果~]
+
+(https://github.com/user-attachments/assets/356d77a8-6f74-4007-b392-7a68e7ecb109)

@@ -29,7 +29,7 @@
     "Separate numbering by type": "按类型分别编号",
     "Display after grouping": "分组后的显示方式",
     "Group by type": "按类型聚合",
-    "Interleave by sequence": "按序号交错排列",
+    "Interleave by sequence": "按序号交错",
     "Other options": "其他选项",
     "Replace existing numbering": "替换现有编号",
     "Detect and remove existing numeric prefixes before re-sorting": "检测并移除现有数字前缀后重新排序",

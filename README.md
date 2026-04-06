@@ -98,7 +98,13 @@ auto-file-sorter/
 ├── package.json       # Extension manifest
 └── tsconfig.json
 
+---
 
+Author： Gina Wang  [GitHub](https://github.com/GinovaCode)
 ---
-Author: Gina Wang  [GitHub](https://github.com/GinovaCode)
----
+
+![demo](media/image_en.png)
+
+### [Watch the video by clicking the link~]
+
+(https://github.com/user-attachments/assets/8edc3526-3c14-4b6a-856a-64a33aac7755)

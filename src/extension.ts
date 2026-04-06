@@ -32,7 +32,7 @@ export function activate(context: vscode.ExtensionContext): void {
     async () => {
       const ws = vscode.workspace.workspaceFolders;
       if (!ws || ws.length === 0) {
-        vscode.window.showInformationMessage(l10n.t("Please open a workspace folder first."));
+        vscode.window.setStatusBarMessage(l10n.t("Please open a workspace folder first."), 3000);
         return;
       }
       for (const folder of ws) {
@@ -173,7 +173,7 @@ panel.webview.onDidReceiveMessage(
         "default",
         vscode.ConfigurationTarget.Global
       );
-      vscode.window.showInformationMessage(l10n.t("✅ Undone numbering for {0} files.", undoOps.length));
+      vscode.window.setStatusBarMessage(l10n.t("✅ Undone numbering for {0} files.", undoOps.length), 3000);
       resolve(null);
       panel.dispose();
     } else {
@@ -224,12 +224,12 @@ panel.webview.onDidReceiveMessage(
 
       // ← 新增
       if (ops === "EMPTY") {
-        vscode.window.showInformationMessage(l10n.t("This folder is empty. No files to sort."));
+        vscode.window.setStatusBarMessage(l10n.t("This folder is empty. No files to sort."), 3000);
         return;
       }
 
       if (ops.length === 0) {
-        vscode.window.showInformationMessage(l10n.t("All files are already in order. No changes needed."));
+        vscode.window.setStatusBarMessage(l10n.t("All files are already in order. No changes needed."), 3000);
         return;
       }
 
@@ -246,8 +246,9 @@ panel.webview.onDidReceiveMessage(
             vscode.ConfigurationTarget.Global
           );
         }
-        vscode.window.showInformationMessage(
-          l10n.t("✅ Done! Renamed {0} files.", ops.length)
+        vscode.window.setStatusBarMessage(
+          l10n.t("✅ Done! Renamed {0} files.", ops.length),
+          3000
         );
       } catch (err) {
         vscode.window.showErrorMessage(l10n.t("Rename failed: {0}", String(err)));
